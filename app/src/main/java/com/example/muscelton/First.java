@@ -40,21 +40,21 @@ public class First extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
 
-        Button buttonGenerateWorkout = (Button) rootView.findViewById(R.id.buttonGeneroi);
+        Button buttonGenerateWorkout = (Button) rootView.findViewById(R.id.buttonGenerate);
         buttonGenerateWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
                 Collections.shuffle(workoutSheet);
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus1))
+                ((TextView)getView().findViewById(R.id.textViewExercise1))
                         .setText(workoutSheet.get(0));
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus2))
+                ((TextView)getView().findViewById(R.id.textViewExercise2))
                         .setText(workoutSheet.get(1));
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus3))
+                ((TextView)getView().findViewById(R.id.textViewExercise3))
                         .setText(workoutSheet.get(2));
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus4))
+                ((TextView)getView().findViewById(R.id.textViewExercise4))
                         .setText(workoutSheet.get(3));
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus5))
+                ((TextView)getView().findViewById(R.id.textViewExercise5))
                         .setText(workoutSheet.get(4));
             }
         });
@@ -65,7 +65,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus1))
+                ((TextView)getView().findViewById(R.id.textViewExercise1))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -76,7 +76,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus2))
+                ((TextView)getView().findViewById(R.id.textViewExercise2))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -87,7 +87,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus3))
+                ((TextView)getView().findViewById(R.id.textViewExercise3))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -98,7 +98,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus4))
+                ((TextView)getView().findViewById(R.id.textViewExercise4))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -109,7 +109,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewHarjoitus5))
+                ((TextView)getView().findViewById(R.id.textViewExercise5))
                         .setText(workoutSheet.get(i));
             }
 
@@ -120,15 +120,15 @@ public class First extends Fragment {
             @Override
             public void onClick(View view) {
                 ArrayList<CharSequence> latestWorkout = new ArrayList<>();
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus1))
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise1))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus2))
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise2))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus3))
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise3))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus4))
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise4))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus5))
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise5))
                         .getText());
             }
         });
@@ -139,9 +139,9 @@ public class First extends Fragment {
 
     public int getDifficulty(){
         RadioGroup rg = getView().findViewById(R.id.radioGroupValitsin);
-        if(rg.getCheckedRadioButtonId() == R.id.radioButtonHelppo){
+        if(rg.getCheckedRadioButtonId() == R.id.radioButtonEasy){
             return 1;
-        } else if(rg.getCheckedRadioButtonId() == R.id.radioButtonNormaali){
+        } else if(rg.getCheckedRadioButtonId() == R.id.radioButtonNormal){
             return 2;
         } else {
             return 3;

@@ -22,47 +22,39 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.10" />
 
-        <TextView
-            android:id="@+id/textViewHarjoitus1"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:text="Exercise 1"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <RadioGroup
+            android:id="@+id/radioGroupValitsin"
+            android:layout_width="135dp"
+            android:layout_height="0dp"
+            android:checkedButton="@id/radioButtonEasy"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.226"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButtonReroll1"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.575"
-            app:layout_constraintStart_toEndOf="@+id/textViewHarjoitus1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.47"
-            app:srcCompat="@android:drawable/ic_menu_rotate" />
+            <RadioButton
+                android:id="@+id/radioButtonEasy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/textViewHarjoitus5"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Exercise 5"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.229"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewHarjoitus4"
-            app:layout_constraintVertical_bias="0.022" />
+            <RadioButton
+                android:id="@+id/radioButtonNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medicore"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonHard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hard"
+                android:textSize="18sp" />
+
+        </RadioGroup>
 
         <Button
-            android:id="@+id/buttonGeneroi"
+            android:id="@+id/buttonGenerate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generate!"
@@ -74,7 +66,34 @@
             app:layout_constraintVertical_bias="0.219" />
 
         <TextView
-            android:id="@+id/textViewHarjoitus2"
+            android:id="@+id/textViewExercise1"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text="Exercise 1"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.484" />
+
+        <TextView
+            android:id="@+id/textViewExercise5"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Exercise 5"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise4"
+            app:layout_constraintVertical_bias="0.047" />
+
+        <TextView
+            android:id="@+id/textViewExercise2"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -82,25 +101,13 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.229"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewHarjoitus1"
-            app:layout_constraintVertical_bias="0.017" />
-
-        <ImageButton
-            android:id="@+id/imageButtonReroll2"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
-            app:layout_constraintStart_toEndOf="@+id/textViewHarjoitus1"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
-            app:layout_constraintVertical_bias="0.065"
-            app:srcCompat="@android:drawable/ic_menu_rotate" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise1"
+            app:layout_constraintVertical_bias="0.012" />
 
         <TextView
-            android:id="@+id/textViewHarjoitus3"
+            android:id="@+id/textViewExercise3"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -108,49 +115,13 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.229"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewHarjoitus2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise2"
             app:layout_constraintVertical_bias="0.019" />
 
-        <ImageButton
-            android:id="@+id/imageButtonReroll3"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
-            app:layout_constraintStart_toEndOf="@+id/textViewHarjoitus1"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
-            app:layout_constraintVertical_bias="0.125"
-            app:srcCompat="@android:drawable/ic_menu_rotate" />
-
-        <ImageButton
-            android:id="@+id/imageButtonReroll4"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
-            app:layout_constraintStart_toEndOf="@+id/textViewHarjoitus1"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
-            app:layout_constraintVertical_bias="0.078"
-            app:srcCompat="@android:drawable/ic_menu_rotate" />
-
-        <ImageButton
-            android:id="@+id/imageButtonReroll5"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
-            app:layout_constraintStart_toEndOf="@+id/textViewHarjoitus1"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
-            app:layout_constraintVertical_bias="0.102"
-            app:srcCompat="@android:drawable/ic_menu_rotate" />
-
         <TextView
-            android:id="@+id/textViewHarjoitus4"
+            android:id="@+id/textViewExercise4"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -158,53 +129,77 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.229"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewHarjoitus3"
-            app:layout_constraintVertical_bias="0.023" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise3"
+            app:layout_constraintVertical_bias="0.014" />
 
-        <RadioGroup
-            android:id="@+id/radioGroupValitsin"
-            android:layout_width="135dp"
-            android:layout_height="102dp"
-            android:checkedButton="@id/radioButtonHelppo"
+        <ImageButton
+            android:id="@+id/imageButtonReroll1"
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.115"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.205">
+            app:layout_constraintVertical_bias="0.479"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
 
-            <RadioButton
-                android:id="@+id/radioButtonHelppo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Easy"
-                android:textSize="18sp" />
+        <ImageButton
+            android:id="@+id/imageButtonReroll2"
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
+            app:layout_constraintVertical_bias="0.063"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
 
-            <RadioButton
-                android:id="@+id/radioButtonNormaali"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Normal"
-                android:textSize="18sp" />
+        <ImageButton
+            android:id="@+id/imageButtonReroll3"
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
+            app:layout_constraintVertical_bias="0.091"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
 
-            <RadioButton
-                android:id="@+id/radioButtonHaastava"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hard"
-                android:textSize="18sp" />
+        <ImageButton
+            android:id="@+id/imageButtonReroll4"
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
+            app:layout_constraintVertical_bias="0.08"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
 
-        </RadioGroup>
+        <ImageButton
+            android:id="@+id/imageButtonReroll5"
+            android:layout_width="35dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
+            app:layout_constraintVertical_bias="0.146"
+            app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save Workout"
-            tools:layout_editor_absoluteX="142dp"
-            tools:layout_editor_absoluteY="633dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.913" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
