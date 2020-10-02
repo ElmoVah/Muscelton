@@ -34,7 +34,6 @@ public class First extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
 
 
         Button buttonGenerateWorkout = getView().findViewById(R.id.buttonGeneroi);
@@ -57,7 +56,7 @@ public class First extends Fragment {
             }
         });
 
-        ImageButton reroll1 = findViewById(R.id.imageButtonReroll1);
+        ImageButton reroll1 = getView().findViewById(R.id.imageButtonReroll1);
         reroll1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +111,8 @@ public class First extends Fragment {
             }
 
         });
+
+        return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
     public int getDifficulty(){
