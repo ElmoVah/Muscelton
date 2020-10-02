@@ -132,7 +132,7 @@ public class First extends Fragment {
                         .getText());
                 latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise4))
                         .getText());
-                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise5))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise5   ))
                         .getText());
 
                 ArrayList<CharSequence> latestReps = new ArrayList<>();

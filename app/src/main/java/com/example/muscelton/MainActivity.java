@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.muscelton.hitech.SaveManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //#HITECH
+        SaveManager.loadAllData(this);
 
         pager = findViewById(R.id.viewpager);
         mTabLayout = findViewById(R.id.tablayout);
@@ -80,5 +83,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, "Btn is clicked", Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    @Override //#HITECH
+    protected void onPause() {
+        super.onPause();
+        SaveManager.saveAllData(this);
     }
 }

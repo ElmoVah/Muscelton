@@ -1,6 +1,5 @@
 package com.example.muscelton;
 
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,10 +12,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Second extends Fragment {
+public class Goals extends Fragment {
 
 
-    public Second() {
+    public Goals() {
         // Required empty public constructor
     }
 
@@ -25,7 +24,7 @@ public class Second extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return inflater.inflate(R.layout.fragment_third, container, false);
     }
 
 }

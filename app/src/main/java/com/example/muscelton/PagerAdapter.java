@@ -20,9 +20,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new First();
             case 1:
-                return new Second();
+                return new Progress();
             case 2 :
-                return new Third();
+                return new Goals();
             default: return null;
         }
     }
