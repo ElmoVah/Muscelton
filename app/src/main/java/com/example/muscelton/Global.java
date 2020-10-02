@@ -8,6 +8,7 @@ public class Global {
     private List<String> normal;
     private List<String> hard;
     private List<CharSequence> latestWorkout;
+    private List<CharSequence> latestReps;
 
     private static final Global ourinstance = new Global();
     public static Global getInstance(){
@@ -58,12 +59,17 @@ public class Global {
 
     }
 
-    public void saveWokout(List<CharSequence> latestWorkout){
+    public void saveWokout(List<CharSequence> latestWorkout, List<CharSequence> latestReps){
         this.latestWorkout = latestWorkout;
+        this.latestReps = latestReps;
     }
 
     public List<CharSequence> getLatestWorkout(){
         return  this.latestWorkout;
+    }
+
+    public List<CharSequence> getLatestReps(){
+        return this.latestReps;
     }
 
     public List<String> getWorkoutSheet(int i) {

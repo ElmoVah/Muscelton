@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -133,6 +134,15 @@ public class First extends Fragment {
                         .getText());
                 latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise5))
                         .getText());
+
+                ArrayList<CharSequence> latestReps = new ArrayList<>();
+                latestReps.add(((EditText)rootView.findViewById(R.id.editTextReps1)).getText());
+                latestReps.add(((EditText)rootView.findViewById(R.id.editTextReps2)).getText());
+                latestReps.add(((EditText)rootView.findViewById(R.id.editTextReps3)).getText());
+                latestReps.add(((EditText)rootView.findViewById(R.id.editTextReps4)).getText());
+                latestReps.add(((EditText)rootView.findViewById(R.id.editTextReps5)).getText());
+
+                Global.getInstance().saveWokout(latestWorkout, latestReps);
             }
         });
 
