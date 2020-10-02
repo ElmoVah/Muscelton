@@ -7,6 +7,7 @@ public class Global {
     private List<String> easy;
     private List<String> normal;
     private List<String> hard;
+    private List<CharSequence> latestWorkout;
 
     private static final Global ourinstance = new Global();
     public static Global getInstance(){
@@ -55,6 +56,14 @@ public class Global {
         this.hard.add("Windshield wipers");
         this.hard.add("Heels to the heavens");
 
+    }
+
+    public void saveWokout(List<CharSequence> latestWorkout){
+        this.latestWorkout = latestWorkout;
+    }
+
+    public List<CharSequence> getLatestWorkout(){
+        return  this.latestWorkout;
     }
 
     public List<String> getWorkoutSheet(int i) {

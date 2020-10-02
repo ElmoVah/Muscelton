@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -23,6 +24,7 @@ import java.util.Random;
 public class First extends Fragment {
 
     final Random random = new Random();
+    private View rootView;
 
 
     public First() {
@@ -34,10 +36,11 @@ public class First extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        //return inflater.inflate(R.layout.fragment_first, container, false);
 
+        rootView = inflater.inflate(R.layout.fragment_first, container, false);
 
-        Button buttonGenerateWorkout = getView().findViewById(R.id.buttonGeneroi);
+        Button buttonGenerateWorkout = (Button) rootView.findViewById(R.id.buttonGeneroi);
         buttonGenerateWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,11 +56,10 @@ public class First extends Fragment {
                         .setText(workoutSheet.get(3));
                 ((TextView)getView().findViewById(R.id.textViewHarjoitus5))
                         .setText(workoutSheet.get(4));
-
             }
         });
 
-        ImageButton reroll1 = findViewById(R.id.imageButtonReroll1);
+        ImageButton reroll1 = (ImageButton) rootView.findViewById(R.id.imageButtonReroll1);
         reroll1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +70,7 @@ public class First extends Fragment {
             }
         });
 
-        ImageButton reroll2 = getView().findViewById(R.id.imageButtonReroll2);
+        ImageButton reroll2 = (ImageButton) rootView.findViewById(R.id.imageButtonReroll2);
         reroll2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +81,7 @@ public class First extends Fragment {
             }
         });
 
-        ImageButton reroll3 = getView().findViewById(R.id.imageButtonReroll3);
+        ImageButton reroll3 = (ImageButton) rootView.findViewById(R.id.imageButtonReroll3);
         reroll3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +92,7 @@ public class First extends Fragment {
             }
         });
 
-        ImageButton reroll4 = getView().findViewById(R.id.imageButtonReroll4);
+        ImageButton reroll4 = (ImageButton) rootView.findViewById(R.id.imageButtonReroll4);
         reroll4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +103,7 @@ public class First extends Fragment {
             }
         });
 
-        ImageButton reroll5 = getView().findViewById(R.id.imageButtonReroll5);
+        ImageButton reroll5 = (ImageButton) rootView.findViewById(R.id.imageButtonReroll5);
         reroll5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +114,27 @@ public class First extends Fragment {
             }
 
         });
+
+        Button buttonSave = (Button) rootView.findViewById(R.id.buttonSave);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<CharSequence> latestWorkout = new ArrayList<>();
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus1))
+                        .getText());
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus2))
+                        .getText());
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus3))
+                        .getText());
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus4))
+                        .getText());
+                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewHarjoitus5))
+                        .getText());
+            }
+        });
+
+        return inflater.inflate(R.layout.fragment_first, container, false);
+
     }
 
     public int getDifficulty(){

@@ -198,5 +198,13 @@
 
         </RadioGroup>
 
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Workout"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="633dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
