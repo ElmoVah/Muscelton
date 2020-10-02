@@ -41,7 +41,10 @@ public class First extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
 
         Button buttonGenerateWorkout = (Button) rootView.findViewById(R.id.buttonGenerate);
-        buttonGenerateWorkout.setOnClickListener(new View.OnClickListener() {
+        buttonGenerateWorkout.setOnClickListener(new
+
+
+                                                         View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
@@ -65,7 +68,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewExercise1))
+                ((TextView)rootView.findViewById(R.id.textViewExercise1))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -76,7 +79,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewExercise2))
+                ((TextView)rootView.findViewById(R.id.textViewExercise2))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -87,7 +90,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewExercise3))
+                ((TextView)rootView.findViewById(R.id.textViewExercise3))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -98,7 +101,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewExercise4))
+                ((TextView)rootView.findViewById(R.id.textViewExercise4))
                         .setText(workoutSheet.get(i));
             }
         });
@@ -109,7 +112,7 @@ public class First extends Fragment {
             public void onClick(View v) {
                 int i = random.nextInt(Global.getInstance().getWorkoutSheet(getDifficulty()).size());
                 List<String> workoutSheet = Global.getInstance().getWorkoutSheet(getDifficulty());
-                ((TextView)getView().findViewById(R.id.textViewExercise5))
+                ((TextView)rootView.findViewById(R.id.textViewExercise5))
                         .setText(workoutSheet.get(i));
             }
 
@@ -120,21 +123,21 @@ public class First extends Fragment {
             @Override
             public void onClick(View view) {
                 ArrayList<CharSequence> latestWorkout = new ArrayList<>();
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise1))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise1))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise2))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise2))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise3))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise3))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise4))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise4))
                         .getText());
-                latestWorkout.add(((TextView)getView().findViewById(R.id.textViewExercise5))
+                latestWorkout.add(((TextView)rootView.findViewById(R.id.textViewExercise5))
                         .getText());
             }
         });
 
-        return inflater.inflate(R.layout.fragment_first, container, false);
-
+        //return inflater.inflate(R.layout.fragment_first, container, false);
+        return rootView;
     }
 
     public int getDifficulty(){
