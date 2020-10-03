@@ -23,30 +23,20 @@ public class SaveManager {
     public static void loadAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN LOAD" );
         String saveData = readFile(context, saveFile); //daily
-        if(saveData == null) {
-            Log.d("lmao", "No save file.");
-            return;
-        }
+        String historyData = readFile(context, historyFile);
+        if(historyData == null) { Log.d("lmao", "No history file."); return; }
+        if(saveData == null) { Log.d("lmao", "No save file."); return; }
         String[] prefs = saveData.split(";");
-        if(prefs.length != 5) {
-            Log.d("lmao", "Save file corrupt.");
-            return;
-        }
+        if(prefs.length != 5) {  Log.d("lmao", "Save file corrupt."); return; }
+        //Parse
         String[] exerciseStrings = prefs[3].split(",");
         String[] repetitionsStrings = prefs[4].split(",");
-
         Exercise[] exercises = new Exercise[exerciseStrings.length];
         int[] repetitions = new int[repetitionsStrings.length];
         for (int i = 0; i < exerciseStrings.length; i++)
             exercises[i] = Exercise.values()[Integer.valueOf(exerciseStrings[i])]; //String -> Exercise
         for (int i = 0; i < ExerciseData.count; i++)
             repetitions[i] = Integer.valueOf(repetitionsStrings[i]); //String -> int
-
-        String historyData = readFile(context, historyFile);
-        if(historyData == null) {
-            Log.d("lmao", "No history file.");
-            return;
-        }
         ArrayList<int[]> repetitionHistory = new ArrayList<>();
         String[] sets = historyData.split(";");
         for (String set : sets) {
@@ -56,22 +46,22 @@ public class SaveManager {
                 r[i] = Integer.valueOf(values[i]);
             repetitionHistory.add(r);
         }
-
+        //Set values
         Global2 g = Global2.getInstance();
         g.setDifficulty(Integer.valueOf(prefs[1]));
         g.setExercises(exercises);
         g.setRepetitions(repetitions);
         g.setRepetitionHistory(repetitionHistory);
-        Log.d("lmao", "Loaded data: " + g.toString() );
         long daysPassed = g.validateLoad(prefs[0], Integer.valueOf(prefs[1]));
+
+        Log.d("lmao", "Loaded data: " + g.toString() );
         Log.d("lmao", "Validated change of " + String.valueOf(daysPassed) + " days.");
     }
 
     public static void saveAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN SAVE" );
-        StringBuilder sb = new StringBuilder();
         Global2 g = Global2.getInstance();
-
+        StringBuilder sb = new StringBuilder();
         sb.append(g.getStartDate()).append(";");
         sb.append(String.valueOf(g.getDayCount())).append(";");
         sb.append(g.getDifficulty()).append(";");
