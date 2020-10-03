@@ -48,16 +48,11 @@ public class First extends Fragment {
             @Override
             public void onClick(View v) {
                 Exercise[] exercises = Global2.getInstance().renewExercises();
-                ((TextView)getView().findViewById(R.id.textViewExercise1))
-                        .setText(ExerciseData.names[exercises[0].ordinal()]);
-                ((TextView)getView().findViewById(R.id.textViewExercise2))
-                        .setText(ExerciseData.names[exercises[1].ordinal()]);
-                ((TextView)getView().findViewById(R.id.textViewExercise3))
-                        .setText(ExerciseData.names[exercises[2].ordinal()]);
-                ((TextView)getView().findViewById(R.id.textViewExercise4))
-                        .setText(ExerciseData.names[exercises[3].ordinal()]);
-                ((TextView)getView().findViewById(R.id.textViewExercise5))
-                        .setText(ExerciseData.names[exercises[4].ordinal()]);
+                ((TextView)getView().findViewById(R.id.textViewExercise1)).setText(ExerciseData.names[exercises[0].ordinal()]);
+                ((TextView)getView().findViewById(R.id.textViewExercise2)).setText(ExerciseData.names[exercises[1].ordinal()]);
+                ((TextView)getView().findViewById(R.id.textViewExercise3)).setText(ExerciseData.names[exercises[2].ordinal()]);
+                ((TextView)getView().findViewById(R.id.textViewExercise4)).setText(ExerciseData.names[exercises[3].ordinal()]);
+                ((TextView)getView().findViewById(R.id.textViewExercise5)).setText(ExerciseData.names[exercises[4].ordinal()]);
             }
         });
 
