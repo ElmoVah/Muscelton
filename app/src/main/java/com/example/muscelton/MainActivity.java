@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.muscelton.fragments.PagerAdapter;
 import com.example.muscelton.hitech.SaveManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;

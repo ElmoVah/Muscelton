@@ -1,9 +1,13 @@
-package com.example.muscelton;
+package com.example.muscelton.fragments;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.muscelton.fragments.First;
+import com.example.muscelton.fragments.Second;
+import com.example.muscelton.fragments.Third;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private int tabsNumber;
@@ -20,9 +24,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new First();
             case 1:
-                return new Progress();
+                return new Second();
             case 2 :
-                return new Goals();
+                return new Third();
             default: return null;
         }
     }
