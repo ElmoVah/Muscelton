@@ -90,8 +90,6 @@ public class First extends Fragment {
                 });
             }
         });
-
-        //return inflater.inflate(R.layout.fragment_first, container, false);
         return rootView;
     }
 }
