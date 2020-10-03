@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class SaveManager {
 
-    public static final String historyFile = "muscleton_history.csv"; //data is appended through time
-    public static final String saveFile = "muscleton_save.csv"; //data is appended through time
+    public static final String historyFile = "muscelton_history.csv"; //data is appended through time
+    public static final String saveFile = "muscelton_save.csv"; //data is appended through time
     public static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy"); //date save format
     /*data storage format:
     String startDate; int dayCount; int difficulty; int[] exercises; int[] repetitions
@@ -47,7 +47,7 @@ public class SaveManager {
             repetitionHistory.add(r);
         }
         //Set values
-        Global2 g = Global2.getInstance();
+        Global g = Global.getInstance();
         g.setDifficulty(Integer.valueOf(prefs[1]));
         g.setExercises(exercises);
         g.setRepetitions(repetitions);
@@ -61,7 +61,7 @@ public class SaveManager {
 
     public static void saveAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN SAVE" );
-        Global2 g = Global2.getInstance();
+        Global g = Global.getInstance();
         StringBuilder sb = new StringBuilder();
         sb.append(g.getStartDate()).append(";");
         sb.append(String.valueOf(g.getDayCount())).append(";");
