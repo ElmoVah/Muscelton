@@ -11,7 +11,7 @@
         android:layout_height="684dp">
 
         <RadioGroup
-            android:id="@+id/radioGroupValitsin"
+            android:id="@+id/radioGroupDifficulty"
             android:layout_width="136dp"
             android:layout_height="95dp"
             android:checkedButton="@id/radioButtonEasy"
@@ -82,7 +82,7 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewExercise4"
-            app:layout_constraintVertical_bias="0.047" />
+            app:layout_constraintVertical_bias="0.018" />
 
         <TextView
             android:id="@+id/textViewExercise2"
@@ -128,62 +128,68 @@
 
         <ImageButton
             android:id="@+id/imageButtonReroll1"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#002B0A0A"
+            android:tint="#9BB2C1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewExercise1"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.233"
+            app:layout_constraintVertical_bias="0.238"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll2"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#002B0A0A"
+            android:tint="#9BB2C1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewExercise2"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
-            app:layout_constraintVertical_bias="0.049"
+            app:layout_constraintVertical_bias="0.016"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll3"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#002B0A0A"
+            android:tint="#9BB2C1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewExercise4"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
-            app:layout_constraintVertical_bias="0.061"
+            app:layout_constraintVertical_bias="0.021"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll4"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#002B0A0A"
+            android:tint="#9BB2C1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewExercise3"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
-            app:layout_constraintVertical_bias="0.063"
+            app:layout_constraintVertical_bias="0.018"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll5"
-            android:layout_width="35dp"
-            android:layout_height="34dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#002B0A0A"
+            android:tint="#9BB2C1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewExercise5"
-            app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
-            app:layout_constraintVertical_bias="0.102"
+            app:layout_constraintVertical_bias="0.026"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <Button
@@ -199,65 +205,58 @@
 
         <EditText
             android:id="@+id/editTextReps1"
-            android:layout_width="32dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toEndOf="@+id/textViewExercise1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.22" />
+            app:layout_constraintStart_toEndOf="@+id/textViewExercise1" />
 
         <EditText
             android:id="@+id/editTextReps2"
-            android:layout_width="32dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toEndOf="@+id/textViewExercise2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextReps1" />
+            app:layout_constraintStart_toEndOf="@+id/textViewExercise2" />
 
         <EditText
             android:id="@+id/editTextReps3"
-            android:layout_width="32dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toEndOf="@+id/textViewExercise3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextReps2" />
+            app:layout_constraintStart_toEndOf="@+id/textViewExercise3" />
 
         <EditText
             android:id="@+id/editTextReps4"
-            android:layout_width="32dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toEndOf="@+id/textViewExercise4"
-            app:layout_constraintTop_toBottomOf="@+id/editTextReps3" />
+            app:layout_constraintStart_toEndOf="@+id/textViewExercise4" />
 
         <EditText
             android:id="@+id/editTextReps5"
-            android:layout_width="32dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
-            app:layout_constraintStart_toEndOf="@+id/textViewExercise5"
-            app:layout_constraintTop_toBottomOf="@+id/editTextReps4"
-            app:layout_constraintVertical_bias="0.067" />
+            app:layout_constraintStart_toEndOf="@+id/textViewExercise5" />
 
         <TextView
             android:id="@+id/textView2"

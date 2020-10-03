@@ -72,21 +72,25 @@ public class Global {
 
     //Sufflaa uudet harjoitukset. Koska haluamme käyttää Elmon suositusta, Shufflea, pitää tehdä pari tyyppimuunnosta :(
     public Exercise[] renewExercises() {
-        List<Exercise> newExercises = Arrays.asList(getExercisesByDifficulty()); //Exercise[] to List<Exercise>
+        List<Exercise> newExercises = Arrays.asList(getExercisesOfDifficulty()); //Exercise[] to List<Exercise>
         Collections.shuffle(newExercises);  //SHUFFLE!
         for(int i = 0; i < this.exercises.length; i++)
             exercises[i] = newExercises.get(i);
+        Log.d("lmao", exercises[0].ordinal() + ", " + exercises[1].ordinal() + ", " + exercises[2].ordinal() + ", " + exercises[3].ordinal() + ", " + exercises[4].ordinal());
         return this.exercises; //List<Exercise> to Exercise[]
     }
 
     //Arpoo yhden uuden harjoituksen.
     public Exercise renewExercise(int index) {
-        int randomIndex = rng.nextInt(6);
-        this.exercises[index] = getExercisesByDifficulty()[randomIndex];
+        Exercise[] difSet = getExercisesOfDifficulty();
+        int newIndex = rng.nextInt(difSet.length -1 ); //arvotaan kaikista lukuunottamatta viimeistä, koska:
+        if(this.exercises[index] == difSet[newIndex])  //jos harjoitus on sama kuin edellinen, silloin valitaan viimeinen
+            newIndex = difSet.length -1 ;
+        this.exercises[index] = difSet[newIndex];
         return this.exercises[index];
     }
 
-    private Exercise[] getExercisesByDifficulty() {
+    private Exercise[] getExercisesOfDifficulty() {
         return this.difficulty == 0 ? ExerciseData.easy : this.difficulty == 1 ? ExerciseData.medium : ExerciseData.hard;
     }
 

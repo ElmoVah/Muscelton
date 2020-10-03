@@ -12,6 +12,8 @@ import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+
+//Contains only file handling and formatting of Global data.
 public class SaveManager {
 
     public static final String historyFile = "muscelton_history.csv"; //data is appended through time
