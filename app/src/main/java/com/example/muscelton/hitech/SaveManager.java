@@ -20,14 +20,14 @@ public class SaveManager {
     /*data storage format:
     String startDate; int dayCount; int difficulty; int[] exercises; int[] repetitions
      */
-    public static void loadAllData(Context context) {
+    public static boolean loadAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN LOAD" );
         String saveData = readFile(context, saveFile); //daily
         String historyData = readFile(context, historyFile);
-        if(historyData == null) { Log.d("lmao", "No history file."); return; }
-        if(saveData == null) { Log.d("lmao", "No save file."); return; }
+        if(saveData == null) { Log.d("lmao", "No save file."); return false; }
+        if(historyData == null) { Log.d("lmao", "No history file."); return true; }
         String[] prefs = saveData.split(";");
-        if(prefs.length != 5) {  Log.d("lmao", "Save file corrupt."); return; }
+        if(prefs.length != 5) {  Log.d("lmao", "Save file corrupt."); return true; }
         //Parse
         String[] exerciseStrings = prefs[3].split(",");
         String[] repetitionsStrings = prefs[4].split(",");
@@ -56,6 +56,7 @@ public class SaveManager {
 
         Log.d("lmao", "Loaded data: " + g.toString() );
         Log.d("lmao", "Validated change of " + String.valueOf(daysPassed) + " days.");
+        return true;
     }
 
     public static void saveAllData(Context context) {
