@@ -10,18 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="684dp">
 
-        <TextView
-            android:id="@+id/textViewHeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bodyweight workout generator"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
-
         <RadioGroup
             android:id="@+id/radioGroupValitsin"
             android:layout_width="136dp"
@@ -32,7 +20,7 @@
             app:layout_constraintHorizontal_bias="0.14"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15">
+            app:layout_constraintVertical_bias="0.05">
 
             <RadioButton
                 android:id="@+id/radioButtonEasy"
@@ -67,7 +55,7 @@
             app:layout_constraintHorizontal_bias="0.812"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15" />
+            app:layout_constraintVertical_bias="0.05" />
 
         <TextView
             android:id="@+id/textViewExercise1"
@@ -80,7 +68,7 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.339" />
+            app:layout_constraintVertical_bias="0.242" />
 
         <TextView
             android:id="@+id/textViewExercise5"
@@ -147,7 +135,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.332"
+            app:layout_constraintVertical_bias="0.233"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
@@ -159,7 +147,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
-            app:layout_constraintVertical_bias="0.052"
+            app:layout_constraintVertical_bias="0.049"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
@@ -171,7 +159,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
-            app:layout_constraintVertical_bias="0.072"
+            app:layout_constraintVertical_bias="0.061"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
@@ -183,7 +171,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
-            app:layout_constraintVertical_bias="0.066"
+            app:layout_constraintVertical_bias="0.063"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
@@ -195,7 +183,7 @@
             app:layout_constraintHorizontal_bias="0.514"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
-            app:layout_constraintVertical_bias="0.123"
+            app:layout_constraintVertical_bias="0.102"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <Button
@@ -207,7 +195,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.808" />
+            app:layout_constraintVertical_bias="0.712" />
 
         <EditText
             android:id="@+id/editTextReps1"
@@ -217,20 +205,20 @@
             android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise1"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            app:layout_constraintVertical_bias="0.22" />
 
         <EditText
             android:id="@+id/editTextReps2"
             android:layout_width="32dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise2"
             app:layout_constraintTop_toBottomOf="@+id/editTextReps1" />
 
@@ -238,11 +226,11 @@
             android:id="@+id/editTextReps3"
             android:layout_width="32dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise3"
             app:layout_constraintTop_toBottomOf="@+id/editTextReps2" />
 
@@ -250,11 +238,11 @@
             android:id="@+id/editTextReps4"
             android:layout_width="32dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise4"
             app:layout_constraintTop_toBottomOf="@+id/editTextReps3" />
 
@@ -266,17 +254,17 @@
             android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise5"
             app:layout_constraintTop_toBottomOf="@+id/editTextReps4"
-            app:layout_constraintVertical_bias="0.077" />
+            app:layout_constraintVertical_bias="0.067" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="4dp"
             android:text="Reps"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextReps1"
