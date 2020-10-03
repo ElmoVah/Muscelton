@@ -80,10 +80,10 @@ public class Global2 {
     }
 
     //Arpoo yhden uuden harjoituksen.
-    public Exercise[] renewExercise(int index) {
-        int harjoitus = rng.nextInt(6);
-        this.exercises[index] = getExercisesByDifficulty()[harjoitus];
-        return this.exercises;
+    public Exercise renewExercise(int index) {
+        int randomIndex = rng.nextInt(6);
+        this.exercises[index] = getExercisesByDifficulty()[randomIndex];
+        return this.exercises[index];
     }
 
     private Exercise[] getExercisesByDifficulty() {
