@@ -18,11 +18,11 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Progress extends Fragment {
+public class Progress extends Fragment { //aka "Second" :D
 
 
     public Progress() {
-        // Required empty public constructor
+        // Required empty public constructor1cDESWXZ
     }
 
 

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Goals extends Fragment {
+public class Goals extends Fragment { //aka "Third" :D
 
 
     public Goals() {

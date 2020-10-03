@@ -9,32 +9,31 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 public class SaveManager {
 
     public static final String historyFile = "muscleton_history.csv"; //data is appended through time
     public static final String saveFile = "muscleton_save.csv"; //data is appended through time
-
+    public static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy"); //date save format
     /*data storage format:
-    int difficulty; int[] exercises; int[] repetitions
+    String startDate; int dayCount; int difficulty; int[] exercises; int[] repetitions
      */
     public static void loadAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN LOAD" );
         String saveData = readFile(context, saveFile); //daily
-        if(saveData == null) return;
-
+        if(saveData == null) {
+            Log.d("lmao", "No save file.");
+            return;
+        }
         String[] prefs = saveData.split(";");
-        String[] exerciseStrings = prefs[1].split(",");
-        String[] repetitionsStrings = prefs[2].split(",");
+        if(prefs.length != 5) {
+            Log.d("lmao", "Save file corrupt.");
+            return;
+        }
+        String[] exerciseStrings = prefs[3].split(",");
+        String[] repetitionsStrings = prefs[4].split(",");
 
         Exercise[] exercises = new Exercise[exerciseStrings.length];
         int[] repetitions = new int[repetitionsStrings.length];
@@ -44,6 +43,10 @@ public class SaveManager {
             repetitions[i] = Integer.valueOf(repetitionsStrings[i]); //String -> int
 
         String historyData = readFile(context, historyFile);
+        if(historyData == null) {
+            Log.d("lmao", "No history file.");
+            return;
+        }
         ArrayList<int[]> repetitionHistory = new ArrayList<>();
         String[] sets = historyData.split(";");
         for (String set : sets) {
@@ -55,11 +58,13 @@ public class SaveManager {
         }
 
         Global2 g = Global2.getInstance();
-        g.setDifficulty(Integer.valueOf(prefs[0]));
+        g.setDifficulty(Integer.valueOf(prefs[1]));
         g.setExercises(exercises);
         g.setRepetitions(repetitions);
         g.setRepetitionHistory(repetitionHistory);
         Log.d("lmao", "Loaded data: " + g.toString() );
+        long daysPassed = g.validateLoad(prefs[0], Integer.valueOf(prefs[1]));
+        Log.d("lmao", "Validated change of " + String.valueOf(daysPassed) + " days.");
     }
 
     public static void saveAllData(Context context) {
@@ -67,6 +72,8 @@ public class SaveManager {
         StringBuilder sb = new StringBuilder();
         Global2 g = Global2.getInstance();
 
+        sb.append(g.getStartDate()).append(";");
+        sb.append(String.valueOf(g.getDayCount())).append(";");
         sb.append(g.getDifficulty()).append(";");
         for (Exercise e : g.getExercises())
             sb.append(e.ordinal()).append(",");
@@ -88,7 +95,7 @@ public class SaveManager {
         }
         sb.setLength(sb.length() - 1); //useless semicolon
         writeFile(context, historyFile, sb.toString(), false);
-        Log.d("lmao", "Saved history: " + sb.toString() );
+        Log.d("lmao", "Saved history of " + (g.getDayCount() + 1) + " days, " + (g.getDayCount() - g.getDayCountPrevious()) + " day change." );
     }
 
     public static void clearHistory() {
