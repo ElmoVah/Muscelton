@@ -5,17 +5,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.muscelton.hitech.Exercise;
-import com.example.muscelton.hitech.ExerciseData;
-import com.example.muscelton.hitech.Global2;
-import com.example.muscelton.hitech.SaveManager;
-
-import java.util.ArrayList;
 
 
 /**

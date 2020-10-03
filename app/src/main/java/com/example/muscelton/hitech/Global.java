@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Global2 {
+public class Global {
 
     public final Random rng;
     private int difficulty; //current
@@ -22,9 +22,9 @@ public class Global2 {
     private long dayCount; //equals repetitionHistory.size();
     private long dayCountPrevious; //on the last opening of app
 
-    private static final Global2 singleton = new Global2(); //luokka luodaan ohjelman kännistyessä
+    private static final Global singleton = new Global(); //luokka luodaan ohjelman kännistyessä
 
-    private Global2() {
+    private Global() {
         this.rng = new Random(1337);
         //default values, unless loaded from save
         this.difficulty = 0;
@@ -39,7 +39,7 @@ public class Global2 {
     }
 
     //Pääsy tähän luokkaan
-    public static Global2 getInstance() {
+    public static Global getInstance() {
         return singleton;
     }
 
