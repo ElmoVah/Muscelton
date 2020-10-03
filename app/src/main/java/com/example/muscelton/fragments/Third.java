@@ -1,4 +1,4 @@
-package com.example.muscelton;
+package com.example.muscelton.fragments;
 
 import android.os.Bundle;
 
@@ -8,14 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.muscelton.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Goals extends Fragment { //aka "Third" :D
+public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
 
 
-    public Goals() {
+    public Third() {
         // Required empty public constructor
     }
 

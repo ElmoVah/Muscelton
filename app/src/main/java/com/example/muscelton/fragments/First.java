@@ -1,4 +1,4 @@
-package com.example.muscelton;
+package com.example.muscelton.fragments;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.muscelton.R;
 import com.example.muscelton.hitech.Exercise;
 import com.example.muscelton.hitech.ExerciseData;
 import com.example.muscelton.hitech.Global;
