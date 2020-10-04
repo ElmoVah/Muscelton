@@ -96,18 +96,20 @@ public class First extends Fragment {
                 }
             });
         }
+
         for(int i = 0; i < editTexts.length; i++) {
             final int a = i;
             editTexts[i].addTextChangedListener(new TextWatcher() {
 
                 public void onTextChanged(CharSequence c, int start, int before, int count) {
-                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = c.length() == 0 ? 0 : Integer.parseInt(c.toString());
+                    int rep = c.length() == 0 || c.length() > 2 ? 0 : Integer.parseInt(c.toString());
+                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = rep;
                 }
                 public void beforeTextChanged(CharSequence c, int start, int count, int after) {
-                    // this space intentionally left blank
+                    ((Button) rootView.findViewById(R.id.buttonRerollAll)).setEnabled(false);
                 }
                 public void afterTextChanged(Editable c) {
-                    // this one too
+                    ((Button) rootView.findViewById(R.id.buttonRerollAll)).setEnabled(true);
                 }
             });
         }

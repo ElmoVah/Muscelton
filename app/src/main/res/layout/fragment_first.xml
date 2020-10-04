@@ -54,7 +54,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="67dp"
             android:layout_height="61dp"
-            android:backgroundTint="#90E5C5"
+            android:backgroundTint="#67B885"
             android:text="Unlock"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -204,7 +204,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="184dp"
             android:layout_height="55dp"
-            android:backgroundTint="#96D7EC"
+            android:backgroundTint="#3DA7DB"
             android:text="Reroll All!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -281,13 +281,13 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="128dp"
-            android:layout_height="53dp"
-            android:text="Your Repetitions are being autosaved 100% reliably!"
+            android:layout_width="202dp"
+            android:layout_height="62dp"
+            android:text="Only enter up to 99 repetitions!\nYour input autosaves reliably."
             android:textStyle="italic"
             app:layout_constraintBaseline_toBaselineOf="@+id/buttonRerollAll"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.822"
             app:layout_constraintStart_toEndOf="@+id/buttonRerollAll" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
