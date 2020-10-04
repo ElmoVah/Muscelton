@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,9 @@ public class First extends Fragment {
 
     final Random random = new Random();
     private View rootView;
-
+    private TextView[] eTextViews;
+    private ImageButton[] rerolls;
+    private EditText[] editTexts;
 
     public First() {
         // Required empty public constructor
@@ -41,21 +45,21 @@ public class First extends Fragment {
         //return inflater.inflate(R.layout.fragment_first, container, false);
         rootView = inflater.inflate(R.layout.fragment_first, container, false);
 
-        final TextView[] eTextViews = {
+        eTextViews = new TextView[]{
                 rootView.findViewById(R.id.textViewExercise1),
                 rootView.findViewById(R.id.textViewExercise2),
                 rootView.findViewById(R.id.textViewExercise3),
                 rootView.findViewById(R.id.textViewExercise4),
                 rootView.findViewById(R.id.textViewExercise5),
         };
-        final ImageButton[] rerolls = new ImageButton[] {
+        rerolls = new ImageButton[] {
                 rootView.findViewById(R.id.imageButtonReroll1),
                 rootView.findViewById(R.id.imageButtonReroll2),
                 rootView.findViewById(R.id.imageButtonReroll3),
                 rootView.findViewById(R.id.imageButtonReroll4),
                 rootView.findViewById(R.id.imageButtonReroll5),
         };
-        final EditText[] editTexts = new EditText[] {
+        editTexts = new EditText[] {
                 rootView.findViewById(R.id.editTextReps1),
                 rootView.findViewById(R.id.editTextReps2),
                 rootView.findViewById(R.id.editTextReps3),
@@ -63,28 +67,23 @@ public class First extends Fragment {
                 rootView.findViewById(R.id.editTextReps5),
         };
 
+        UpdateUI(false);
+
         ((RadioGroup) rootView.findViewById(R.id.radioGroupDifficulty)).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 Global.getInstance().setDifficulty(i == R.id.radioButtonEasy ? 0 : i == R.id.radioButtonNormal ? 1 : 2);
-                //This is auto update on change difficulty, not necessary
-                Exercise[] exercises = Global.getInstance().renewExercises();
-                int[] reps = Global.getInstance().getRepetitions();
-                for(int j = 0; j < eTextViews.length; j++) {
-                    eTextViews[j].setText(ExerciseData.names[exercises[j].ordinal()]);
-                    editTexts[j].setText(String.valueOf(reps[exercises[j].ordinal()]));
-                }
-
-
+                UpdateUI(true);
             }
         });
 
-        ((Button) rootView.findViewById(R.id.buttonGenerate)).setOnClickListener(new View.OnClickListener() {
+        ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Exercise[] exercises = Global.getInstance().renewExercises();
-                for(int i = 0; i < eTextViews.length; i++)
-                    eTextViews[i].setText(ExerciseData.names[exercises[i].ordinal()]);
+                boolean wasEnabled = rootView.findViewById(R.id.radioButtonEasy).isEnabled();
+                for(int id: new int[] {R.id.radioButtonEasy, R.id.radioButtonNormal, R.id.radioButtonHard})
+                    rootView.findViewById(id).setEnabled(!wasEnabled);
+                ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setText(wasEnabled ? "Unlock" : "Lock");
             }
         });
 
@@ -93,22 +92,41 @@ public class First extends Fragment {
             rerolls[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Exercise e = Global.getInstance().renewExercise(a);
-                    eTextViews[a].setText(ExerciseData.names[e.ordinal()]);
-                    editTexts[a].setText(String.valueOf(Global.getInstance().getRepetitions()[e.ordinal()]));
+                    UpdateUI(false);
                 }
             });
         }
+        for(int i = 0; i < editTexts.length; i++) {
+            final int a = i;
+            editTexts[i].addTextChangedListener(new TextWatcher() {
 
-        ((Button) rootView.findViewById(R.id.buttonSave)).setOnClickListener(new View.OnClickListener() {
+                public void onTextChanged(CharSequence c, int start, int before, int count) {
+                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = c.length() == 0 ? 0 : Integer.parseInt(c.toString());
+                }
+                public void beforeTextChanged(CharSequence c, int start, int count, int after) {
+                    // this space intentionally left blank
+                }
+                public void afterTextChanged(Editable c) {
+                    // this one too
+                }
+            });
+        }
+        ((Button) rootView.findViewById(R.id.buttonRerollAll)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int[] reps = new int[5];
-                for(int i = 0; i < reps.length; i++) {
-                    reps[i] = Integer.valueOf(editTexts[i].getText().toString());
-                }
-                Global.getInstance().setRepetitions(reps);
+                UpdateUI(true);
             }
         });
         return rootView;
+
+    }
+    private void UpdateUI(boolean renew) {
+        Exercise[] exercises = renew ? Global.getInstance().renewExercises() : Global.getInstance().getExercises();
+        int[] reps = Global.getInstance().getRepetitions();
+        for(int j = 0; j < this.eTextViews.length; j++) {
+            int id = exercises[j].ordinal();
+            eTextViews[j].setText(ExerciseData.names[id]);
+            editTexts[j].setText(reps[id] != 0 ? String.valueOf(reps[id]) : "");
+        }
     }
 }

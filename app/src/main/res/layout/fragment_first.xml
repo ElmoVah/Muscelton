@@ -15,6 +15,7 @@
             android:layout_width="136dp"
             android:layout_height="95dp"
             android:checkedButton="@id/radioButtonEasy"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.14"
@@ -26,6 +27,7 @@
                 android:id="@+id/radioButtonEasy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="Easy"
                 android:textSize="18sp" />
 
@@ -33,6 +35,7 @@
                 android:id="@+id/radioButtonNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="Medicore"
                 android:textSize="18sp" />
 
@@ -40,22 +43,26 @@
                 android:id="@+id/radioButtonHard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="Hard"
                 android:textSize="18sp" />
 
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonGenerate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generate!"
+            android:id="@+id/buttonUnlockDifficulty"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="67dp"
+            android:layout_height="61dp"
+            android:backgroundTint="#90E5C5"
+            android:text="Unlock"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.812"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.073" />
 
         <TextView
             android:id="@+id/textViewExercise1"
@@ -193,15 +200,18 @@
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save Results"
+            android:id="@+id/buttonRerollAll"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="184dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#96D7EC"
+            android:text="Reroll All!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.712" />
+            app:layout_constraintVertical_bias="0.696" />
 
         <EditText
             android:id="@+id/editTextReps1"
@@ -262,12 +272,23 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="12dp"
             android:layout_marginBottom="4dp"
-            android:text="Reps"
+            android:text="Today's Reps"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextReps1"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="128dp"
+            android:layout_height="53dp"
+            android:text="Your Repetitions are being autosaved 100% reliably!"
+            android:textStyle="italic"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonRerollAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toEndOf="@+id/buttonRerollAll" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
