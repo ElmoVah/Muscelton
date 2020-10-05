@@ -103,7 +103,7 @@ public class First extends Fragment {
 
                 public void onTextChanged(CharSequence c, int start, int before, int count) {
                     int rep = c.length() == 0 || c.length() > 2 ? 0 : Integer.parseInt(c.toString());
-                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = rep;
+                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = c.length() == 0 || c.length() > 2 ? 0 : Integer.parseInt(c.toString());
                 }
                 public void beforeTextChanged(CharSequence c, int start, int count, int after) {
                     ((Button) rootView.findViewById(R.id.buttonRerollAll)).setEnabled(false);

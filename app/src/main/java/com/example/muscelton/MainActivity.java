@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.muscelton.fragments.PagerAdapter;
+import com.example.muscelton.fragments.Second;
 import com.example.muscelton.hitech.SaveManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition() == 1)
+                    Second.updateTodayItem();
                 pager.setCurrentItem(tab.getPosition());
             }
 
