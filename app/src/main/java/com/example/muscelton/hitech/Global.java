@@ -154,7 +154,7 @@ public class Global {
             if(rng.nextInt( 2 + dedication) != 0)  //empty days
                 for(int j = 0; j < randomReps.length; j++)
                     randomReps[j] = rng.nextInt(8) > 0 ? 0 :
-                            rng.nextInt(5) == 0 ? 5 + rng.nextInt(1 + 5*dedication) : 5 + rng.nextInt(1 + 20 * dedication);
+                            rng.nextInt(5) == 0 ? 5 + rng.nextInt(5 + 5*dedication) : 5 + rng.nextInt(1 + 20 * dedication);
             if(i < historyDays)
                 repetitionHistory.add(randomReps);
             else

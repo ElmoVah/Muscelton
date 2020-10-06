@@ -76,13 +76,13 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         for(int i = repetitionHistory.size() - shownHistoryDays; i < repetitionHistory.size(); i++) {
             int repSum = Arrays.stream(repetitionHistory.get(i)).sum(); //historyday
             repsTotal += repSum;
-            repEntries.add(new Entry(i, repSum));
-            sumEntries.add(new Entry(i, repsTotal));
+            repEntries.add(new Entry(i + 1, repSum));
+            sumEntries.add(new Entry(i + 1, repsTotal));
         }
         int repSum = Arrays.stream(Global.getInstance().getRepetitions()).sum(); //today
         repsTotal += repSum;
-        repEntries.add(new Entry(shownHistoryDays, repSum));
-        sumEntries.add(new Entry(shownHistoryDays, repsTotal));
+        repEntries.add(new Entry(shownHistoryDays +1, repSum));
+        sumEntries.add(new Entry(shownHistoryDays +1, repsTotal));
         float avgReps = repsTotal / (shownHistoryDays + 1);
 
         LineDataSet ds1 = new LineDataSet(repEntries, "Daily reps");
@@ -110,7 +110,7 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         ArrayList<ILineDataSet> dataSets2 = new ArrayList<>();
         ArrayList<Entry> predictionEntries = new ArrayList<>();
 
-        int predictHistoryDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 7
+        int predictHistoryDays = (int)Math.min(7, Global.getInstance().getDayCount()); //max 7
         int predictHistoryTotal = 0;
         for(int i = repetitionHistory.size() - predictHistoryDays; i < repetitionHistory.size(); i++) {
             predictHistoryTotal += Arrays.stream(repetitionHistory.get(i)).sum();
@@ -122,7 +122,7 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         }
 
         LineDataSet ds3 = new LineDataSet(predictionEntries, "Prediction on your 7 day average: " + avgRepsBase + " reps/day");
-        ds3.setColor(Color.CYAN);
+        ds3.setColor(Color.RED);
         dataSets2.add(ds3);
         LineData data2 = new LineData(dataSets2);
         XAxis xAxis2 = chartPrediction.getXAxis();
