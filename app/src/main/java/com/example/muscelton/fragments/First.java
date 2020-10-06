@@ -1,14 +1,18 @@
 package com.example.muscelton.fragments;
 
+import android.content.Context;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,6 +25,7 @@ import com.example.muscelton.hitech.ExerciseData;
 import com.example.muscelton.hitech.Global;
 
 import java.util.Random;
+
 
 
 /**
@@ -88,7 +93,7 @@ public class First extends Fragment {
         });
 
         for(int i = 0; i < rerolls.length; i++ ) {
-            final int a = i; //haxi :D
+            final int a = i; //haxi :Ds
             rerolls[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Exercise e = Global.getInstance().renewExercise(a);
@@ -102,8 +107,11 @@ public class First extends Fragment {
             editTexts[i].addTextChangedListener(new TextWatcher() {
 
                 public void onTextChanged(CharSequence c, int start, int before, int count) {
-                    int rep = c.length() == 0 || c.length() > 2 ? 0 : Integer.parseInt(c.toString());
-                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = c.length() == 0 || c.length() > 2 ? 0 : Integer.parseInt(c.toString());
+                    int rep = c.length() == 0 ? 0 : Integer.parseInt(c.toString());
+                    if(c.length() > 2)
+                        editTexts[a].setText(String.valueOf((rep = 99)));
+
+                    Global.getInstance().getRepetitions()[Global.getInstance().getExercises()[a].ordinal()] = rep;
                 }
                 public void beforeTextChanged(CharSequence c, int start, int count, int after) {
                     ((Button) rootView.findViewById(R.id.buttonRerollAll)).setEnabled(false);
@@ -112,6 +120,22 @@ public class First extends Fragment {
                     ((Button) rootView.findViewById(R.id.buttonRerollAll)).setEnabled(true);
                 }
             });
+            editTexts[i].setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                        if (event.getAction() == KeyEvent.ACTION_DOWN){
+                            if (v != null) {
+                                InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                            }
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+
+            });
         }
         ((Button) rootView.findViewById(R.id.buttonRerollAll)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +143,8 @@ public class First extends Fragment {
                 UpdateUI(true);
             }
         });
+
+
         return rootView;
 
     }
@@ -131,4 +157,6 @@ public class First extends Fragment {
             editTexts[j].setText(reps[id] != 0 ? String.valueOf(reps[id]) : "");
         }
     }
+
+
 }

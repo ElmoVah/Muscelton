@@ -208,17 +208,19 @@
             android:text="Reroll All!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintHorizontal_bias="0.488"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.696" />
+            app:layout_constraintVertical_bias="0.693" />
 
         <EditText
             android:id="@+id/editTextReps1"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:focusedByDefault="false"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
@@ -229,7 +231,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:focusedByDefault="false"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
@@ -240,7 +244,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:focusedByDefault="false"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
@@ -251,7 +257,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:focusedByDefault="false"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
@@ -262,7 +270,9 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:focusedByDefault="false"
             android:inputType="number"
+            android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.41"
@@ -281,14 +291,15 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="202dp"
-            android:layout_height="62dp"
-            android:text="Only enter up to 99 repetitions!\nYour input autosaves reliably."
+            android:layout_width="339dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="8dp"
+            android:text="You can input up to 99 repetitions.\nAutosaving reliably!"
+            android:textAlignment="center"
             android:textStyle="italic"
-            app:layout_constraintBaseline_toBaselineOf="@+id/buttonRerollAll"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.822"
-            app:layout_constraintStart_toEndOf="@+id/buttonRerollAll" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRerollAll" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

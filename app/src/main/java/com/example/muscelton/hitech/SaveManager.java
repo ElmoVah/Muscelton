@@ -91,9 +91,6 @@ public class SaveManager {
         Log.d("lmao", "Saved history of " + (g.getDayCount() + 1) + " days, " + (g.getDayCount() - g.getDayCountPrevious()) + " day change." );
     }
 
-    public static void clearHistory() {
-
-    }
 
     public static String readFile(Context context, String fileName) {
         try {

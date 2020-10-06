@@ -8,6 +8,6 @@
     <string name="menu_item">Menu Item</string>
     <string name="headerview">HeaderView</string>
     <string name="monday">Excercise</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
+    <string name="tuesday">History</string>
+    <string name="wednesday">Progress</string>
 </resources>

@@ -14,10 +14,16 @@ import android.widget.ListView;
 
 import com.example.muscelton.DateStatsActivity;
 import com.example.muscelton.R;
+import com.example.muscelton.hitech.ExerciseData;
 import com.example.muscelton.hitech.Global;
+import com.example.muscelton.hitech.SaveManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 
 /**
@@ -25,7 +31,7 @@ import java.util.Arrays;
  */
 public class Second extends Fragment {
 
-    private View secondView;
+    private View rootView;
     private static ListView dates;
     private static ArrayList<String> items;
     public Second() {
@@ -36,19 +42,29 @@ public class Second extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       secondView = inflater.inflate(R.layout.fragment_second, container, false);
+        rootView = inflater.inflate(R.layout.fragment_second, container, false);
 
         ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
         int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime((SaveManager.sdf.parse(Global.getInstance().getStartDate())));
+            c.add(Calendar.DATE, showDays);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         items = new ArrayList<>();
         items.add("Today's repetitions: ?");
         for(int i = showDays - 1; i >= 0; i--) {
-            items.add("Day " + (i + 1) +" reps: " + Arrays.stream(repetitionHistory.get(i)).sum());
+                c.add(Calendar.DATE, -1);
+                items.add(sdf.format(c.getTime()) + " (day " + (i + 1) + "): "
+                        + Arrays.stream(repetitionHistory.get(i)).sum() + " reps");
         }
 
 
-        dates = secondView.findViewById(R.id.listViewDates);
+        dates = rootView.findViewById(R.id.listViewDates);
         dates.setAdapter(new ArrayAdapter<>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
@@ -58,11 +74,29 @@ public class Second extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), DateStatsActivity.class);
-                intent.putExtra("index", i);
+                intent.putExtra("listIndex", i);
+                intent.putExtra("titleString", items.get(i));
                 startActivity(intent);
             }
         });
-        return secondView;
+
+        rootView.findViewById(R.id.buttonClearToday).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Global.getInstance().setRepetitions(new int[ExerciseData.count]);
+                Second.updateTodayItem();
+            }
+        });
+        rootView.findViewById(R.id.buttonClearHistory).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Global.getInstance().setRepetitionHistory(new ArrayList<int[]>());
+                items.clear();
+                items.add("");
+                Second.updateTodayItem();
+            }
+        });
+        return rootView;
     }
 
     public static void updateTodayItem() {

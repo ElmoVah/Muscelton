@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Third">
 
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChartHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.github.mikephil.charting.charts.LineChart>
+
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"

@@ -20,12 +20,13 @@ public class DateStatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_stats);
-        int index = getIntent().getIntExtra("index", 0);
+        int listIndex = getIntent().getIntExtra("listIndex", 0);
+        String titleString = getIntent().getStringExtra("titleString");
 
         ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
 
-        int[] dayReps = index == 0 ? Global.getInstance().getRepetitions()
-                : Global.getInstance().getRepetitionHistory().get(repetitionHistory.size() - 1 - index);
+        int[] dayReps = listIndex == 0 ? Global.getInstance().getRepetitions()
+                : Global.getInstance().getRepetitionHistory().get(repetitionHistory.size() - 1 - listIndex);
 
         ArrayList<String> items = new ArrayList<>();
 
@@ -36,7 +37,7 @@ public class DateStatsActivity extends AppCompatActivity {
             }
         }
 
-        ((TextView)findViewById(R.id.textViewInfo)).setText("Moi");
+        ((TextView)findViewById(R.id.textViewInfo)).setText(titleString);
         ((ListView)findViewById(R.id.listViewRepCounts)).setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
