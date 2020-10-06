@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Random;
 
 
 /**
@@ -47,7 +49,7 @@ public class Second extends Fragment {
         ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
         int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
         Calendar c = Calendar.getInstance();
         try {
             c.setTime((SaveManager.sdf.parse(Global.getInstance().getStartDate())));
@@ -84,7 +86,7 @@ public class Second extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.getInstance().setRepetitions(new int[ExerciseData.count]);
-                Second.updateTodayItem();
+                updateTodayItem();
             }
         });
         rootView.findViewById(R.id.buttonClearHistory).setOnClickListener(new View.OnClickListener() {
@@ -93,14 +95,34 @@ public class Second extends Fragment {
                 Global.getInstance().setRepetitionHistory(new ArrayList<int[]>());
                 items.clear();
                 items.add("");
-                Second.updateTodayItem();
+                updateTodayItem();
+            }
+        });
+        rootView.findViewById(R.id.buttonOverwriteHistory).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random rng = Global.getInstance().rng;
+                int historyDays = rng.nextInt(3) > 0 ? 1 + rng.nextInt(7)  :  10 + rng.nextInt(40);
+                Global.getInstance().overwriteRandomData(historyDays);
+                ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
+                int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
+                SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
+                Calendar c = Calendar.getInstance();
+                items.clear();
+                items.add("Today's repetitions: ?");
+                for(int i = showDays - 1; i >= 0; i--) {
+                    c.add(Calendar.DATE, -1);
+                    items.add(sdf.format(c.getTime()) + " (day " + (i + 1) + "): "
+                            + Arrays.stream(repetitionHistory.get(i)).sum() + " reps");
+                }
+                updateTodayItem();
             }
         });
         return rootView;
     }
 
     public static void updateTodayItem() {
-        items.set(0, "Today's repetitions " + Arrays.stream(Global.getInstance().getRepetitions()).sum());
+        items.set(0, "Today's repetitions: " + Arrays.stream(Global.getInstance().getRepetitions()).sum());
         ((ArrayAdapter<String>)dates.getAdapter()).notifyDataSetChanged();
     }
 

@@ -2,8 +2,10 @@ package com.example.muscelton.hitech;
 
 import android.util.Log;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -124,6 +126,31 @@ public class Global {
                 + "\n" + exercisesString
                 + "\nRepetitions: " + Arrays.toString(repetitions)
                 + "\nHistory days count: " + repetitionHistory.size();
+    }
+
+    public void overwriteRandomData(int historyDays) {
+
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime((SaveManager.sdf.parse(startDate)));
+            c.add(Calendar.DATE, (int)(dayCount - historyDays));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        startDate = SaveManager.sdf.format(c.getTime());
+        dayCount = historyDays;
+        dayCountPrevious = 0;
+        repetitionHistory = new ArrayList<>();
+        for(int i = 0; i < historyDays + 1; i++) {
+            int[] randomReps = new int[ExerciseData.count];
+            if(rng.nextInt(4) != 0)  //empty days
+                for(int j = 0; j < randomReps.length; j++)
+                    randomReps[j] = rng.nextInt(8) > 0 ? 0 : rng.nextInt(3) == 0 ? 10 + rng.nextInt(20) : 5 + rng.nextInt(95);
+            if(i < historyDays)
+                repetitionHistory.add(randomReps);
+            else
+                repetitions = randomReps;
+        }
     }
 }
 

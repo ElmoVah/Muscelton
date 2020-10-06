@@ -26,7 +26,7 @@ public class DateStatsActivity extends AppCompatActivity {
         ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
 
         int[] dayReps = listIndex == 0 ? Global.getInstance().getRepetitions()
-                : Global.getInstance().getRepetitionHistory().get(repetitionHistory.size() - 1 - listIndex);
+                : Global.getInstance().getRepetitionHistory().get(repetitionHistory.size() - listIndex);
 
         ArrayList<String> items = new ArrayList<>();
 

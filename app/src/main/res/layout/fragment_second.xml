@@ -12,32 +12,44 @@
         android:id="@+id/buttonClearToday"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="142dp"
-        android:layout_height="37dp"
+        android:layout_height="39dp"
         android:backgroundTint="#B06091"
         android:text="Clear today"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonClearHistory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/buttonClearHistory" />
 
     <Button
         android:id="@+id/buttonClearHistory"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="139dp"
-        android:layout_height="37dp"
+        android:layout_height="39dp"
         android:backgroundTint="#B06091"
-        android:onClick="onClearPressed"
         android:text="Clear history"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonOverwriteHistory"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonOverwriteHistory"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="310dp"
+        android:layout_height="39dp"
+        android:backgroundTint="#E347A6"
+        android:text="Overwrite history with random data!"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <ListView
         android:id="@+id/listViewDates"
