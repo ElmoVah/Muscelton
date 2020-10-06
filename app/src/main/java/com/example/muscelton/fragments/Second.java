@@ -101,9 +101,7 @@ public class Second extends Fragment {
         rootView.findViewById(R.id.buttonOverwriteHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random rng = Global.getInstance().rng;
-                int historyDays = rng.nextInt(3) > 0 ? 1 + rng.nextInt(7)  :  10 + rng.nextInt(40);
-                Global.getInstance().overwriteRandomData(historyDays);
+                Global.getInstance().overwriteRandomData();
                 ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
                 int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
                 SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
@@ -125,6 +123,7 @@ public class Second extends Fragment {
         items.set(0, "Today's repetitions: " + Arrays.stream(Global.getInstance().getRepetitions()).sum());
         ((ArrayAdapter<String>)dates.getAdapter()).notifyDataSetChanged();
     }
+
 
 
 }

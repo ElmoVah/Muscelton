@@ -48,5 +48,27 @@ android:layout_height="match_parent" tools:context=".fragments.Third">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lineChartHistory" />
 
+    <Button
+        android:id="@+id/buttonOverwrite"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/ic_menu_rotate"
+        android:backgroundTint="#E347A6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineChartPrediction" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Overwrite with random data!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineChartPrediction" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

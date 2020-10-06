@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Random;
 
 
 /**
@@ -46,6 +47,15 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_third, container, false);
         generateGraphs();
+
+        rootView.findViewById(R.id.buttonOverwrite).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Global.getInstance().overwriteRandomData();
+                generateGraphs();
+            }
+        });
+
         return rootView;
     }
 
@@ -108,7 +118,7 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         predictHistoryTotal +=  Arrays.stream(Global.getInstance().getRepetitions()).sum();
         float avgRepsBase = predictHistoryTotal / (predictHistoryDays + 1);
         for(int i = 0; i < 31; i+=5) {
-            predictionEntries.add(new Entry(i, (avgRepsBase * (i))));
+            predictionEntries.add(new Entry(i, repsTotal + (avgRepsBase * (i))));
         }
 
         LineDataSet ds3 = new LineDataSet(predictionEntries, "Prediction on your 7 day average: " + avgRepsBase + " reps/day");

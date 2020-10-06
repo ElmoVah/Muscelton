@@ -128,7 +128,8 @@ public class Global {
                 + "\nHistory days count: " + repetitionHistory.size();
     }
 
-    public void overwriteRandomData(int historyDays) {
+    public void overwriteRandomData() {
+        int historyDays = rng.nextInt(3) > 0 ? 1 + rng.nextInt(7)  :  10 + rng.nextInt(40);
 
         Calendar c = Calendar.getInstance();
         try {
@@ -141,11 +142,14 @@ public class Global {
         dayCount = historyDays;
         dayCountPrevious = 0;
         repetitionHistory = new ArrayList<>();
+
+        int dedication = rng.nextInt(5);
         for(int i = 0; i < historyDays + 1; i++) {
             int[] randomReps = new int[ExerciseData.count];
-            if(rng.nextInt(4) != 0)  //empty days
+            if(rng.nextInt( 2 + dedication) != 0)  //empty days
                 for(int j = 0; j < randomReps.length; j++)
-                    randomReps[j] = rng.nextInt(8) > 0 ? 0 : rng.nextInt(3) == 0 ? 10 + rng.nextInt(20) : 5 + rng.nextInt(95);
+                    randomReps[j] = rng.nextInt(8) > 0 ? 0 :
+                            rng.nextInt(5) == 0 ? 5 + rng.nextInt(1 + 5*dedication) : 5 + rng.nextInt(1 + 20 * dedication);
             if(i < historyDays)
                 repetitionHistory.add(randomReps);
             else
