@@ -3,6 +3,8 @@ package com.example.muscelton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,13 +29,13 @@ public class DateStatsActivity extends AppCompatActivity {
 
         int[] dayReps = listIndex == 0 ? Global.getInstance().getRepetitions()
                 : Global.getInstance().getRepetitionHistory().get(repetitionHistory.size() - listIndex);
-
+        Log.d("lmao",repetitionHistory.size() + ", " + listIndex);
         ArrayList<String> items = new ArrayList<>();
 
         for(int i = 0; i < dayReps.length; i++) {
             int r = dayReps[i];
             if(r != 0) {
-                items.add(ExerciseData.names[i] + ", " + r);
+                items.add(ExerciseData.names[i] + ", " + r + " reps");
             }
         }
 

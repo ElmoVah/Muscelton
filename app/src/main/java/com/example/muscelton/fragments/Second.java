@@ -17,15 +17,11 @@ import com.example.muscelton.DateStatsActivity;
 import com.example.muscelton.R;
 import com.example.muscelton.hitech.ExerciseData;
 import com.example.muscelton.hitech.Global;
-import com.example.muscelton.hitech.SaveManager;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Random;
 
 
 /**
@@ -33,7 +29,7 @@ import java.util.Random;
  */
 public class Second extends Fragment {
 
-    private View rootView;
+    private static View rootView;
     private static ListView dates;
     private static ArrayList<String> items;
     public Second() {
@@ -46,25 +42,7 @@ public class Second extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_second, container, false);
 
-        ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
-        int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
-
-        SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
-        Calendar c = Calendar.getInstance();
-        try {
-            c.setTime((SaveManager.sdf.parse(Global.getInstance().getStartDate())));
-            c.add(Calendar.DATE, showDays);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         items = new ArrayList<>();
-        items.add("Today's repetitions: ?");
-        for(int i = showDays - 1; i >= 0; i--) {
-                c.add(Calendar.DATE, -1);
-                items.add(sdf.format(c.getTime()) + " (day " + (i + 1) + "): "
-                        + Arrays.stream(repetitionHistory.get(i)).sum() + " reps");
-        }
-
 
         dates = rootView.findViewById(R.id.listViewDates);
         dates.setAdapter(new ArrayAdapter<>(
@@ -86,41 +64,42 @@ public class Second extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.getInstance().setRepetitions(new int[ExerciseData.count]);
-                updateTodayItem();
+                updateUI();
             }
         });
         rootView.findViewById(R.id.buttonClearHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.getInstance().setRepetitionHistory(new ArrayList<int[]>());
-                items.clear();
-                items.add("");
-                updateTodayItem();
+                Global.getInstance().initializeHistory();
+                updateUI();
             }
         });
         rootView.findViewById(R.id.buttonOverwriteHistory).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Global.getInstance().overwriteRandomData();
-                ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
-                int showDays = (int)Math.min(30, Global.getInstance().getDayCount()); //max 30
-                SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
-                Calendar c = Calendar.getInstance();
-                items.clear();
-                items.add("Today's repetitions: ?");
-                for(int i = showDays - 1; i >= 0; i--) {
-                    c.add(Calendar.DATE, -1);
-                    items.add(sdf.format(c.getTime()) + " (day " + (i + 1) + "): "
-                            + Arrays.stream(repetitionHistory.get(i)).sum() + " reps");
-                }
-                updateTodayItem();
+                updateUI();
             }
         });
+        updateUI();
         return rootView;
     }
 
-    public static void updateTodayItem() {
-        items.set(0, "Today's repetitions: " + Arrays.stream(Global.getInstance().getRepetitions()).sum());
+    public static void updateUI() {
+        if(rootView == null) return;
+        ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
+        int showDays = (int)Global.getInstance().getDayCount();//(int)Math.min(30, Global.getInstance().getDayCount()); //max 30, mut ei toiminu :D
+        SimpleDateFormat sdf = new SimpleDateFormat("d.M.yyyy");
+        Calendar c = Calendar.getInstance();
+        items.clear();
+        items.add( "Today's repetitions: " + Arrays.stream(Global.getInstance().getRepetitions()).sum());
+        for(int i = showDays - 1; i >= 0; i--) {
+            c.add(Calendar.DATE, -1);
+            items.add(sdf.format(c.getTime()) + " (day " + (i + 1) + "): "
+                    + Arrays.stream(repetitionHistory.get(i)).sum() + " reps");
+
+        }
+        Log.d("lmao", items.size() + " days refresh");
         ((ArrayAdapter<String>)dates.getAdapter()).notifyDataSetChanged();
     }
 

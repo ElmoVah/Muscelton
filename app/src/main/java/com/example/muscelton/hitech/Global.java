@@ -33,17 +33,14 @@ public class Global {
         this.exercises = new Exercise[5];
         this.renewExercises();
         this.repetitions = new int[ExerciseData.count];
-        this.repetitionHistory = new ArrayList<>();
-        this.repetitionHistory.add(new int[ExerciseData.count]);
-        this.dayCount = 0;
-        this.dayCountPrevious = 0;
-        this.startDate = SaveManager.sdf.format(new Date(System.currentTimeMillis()));
+        initializeHistory();
     }
 
     //Pääsy tähän luokkaan
     public static Global getInstance() {
         return singleton;
     }
+
 
     public int getDifficulty() { return this.difficulty; }
     public Exercise[] getExercises() { return this.exercises; }
@@ -94,6 +91,14 @@ public class Global {
 
     private Exercise[] getExercisesOfDifficulty() {
         return this.difficulty == 0 ? ExerciseData.easy : this.difficulty == 1 ? ExerciseData.medium : ExerciseData.hard;
+    }
+
+    public void initializeHistory() {
+        dayCount = 0;
+        dayCountPrevious = 0;
+        this.repetitionHistory = new ArrayList<>();
+        this.startDate = SaveManager.sdf.format(new Date(System.currentTimeMillis()));
+
     }
 
     public long validateLoad(String startDate, int dayCountPrevious){

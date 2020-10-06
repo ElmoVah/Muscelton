@@ -9,24 +9,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.example.muscelton.fragments.PagerAdapter;
 import com.example.muscelton.fragments.Second;
 import com.example.muscelton.fragments.Third;
-import com.example.muscelton.hitech.ExerciseData;
-import com.example.muscelton.hitech.Global;
 import com.example.muscelton.hitech.SaveManager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
@@ -71,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 1)
-                    Second.updateTodayItem();
+                    Second.updateUI();
                 else if(tab.getPosition() == 2)
                     Third.generateGraphs();
 
