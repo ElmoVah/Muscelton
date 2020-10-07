@@ -1,5 +1,9 @@
 package com.example.muscelton.hitech;
 
+/**
+ * Harjoitusten ydin lista
+ * @author Elias Perttu
+ */
 public enum Exercise {
     KNEE_PUSH_UP,
     ELBOW_RAISE,

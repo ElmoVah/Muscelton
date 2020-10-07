@@ -13,14 +13,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
-//Contains only file handling and formatting of Global data.
+/**
+ * Luokka hoitaa kaiken tietokannan datan lataamisen ja tallentamisen csv-tiedostoihin (comma-separated values) formatoimalla muuttujat integereiksi.
+ * Sisältää päivämäärän formatointiin käytettävän SimpleDateFormat tyypin
+ * @author Elias Perttu
+ */
 public class SaveManager {
 
     public static final String historyFile = "muscelton_history.csv"; //data is appended through time
     public static final String saveFile = "muscelton_save.csv"; //data is appended through time
     public static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy"); //date save format
-    /*data storage format:
-    String startDate; int dayCount; int difficulty; int[] exercises; int[] repetitions
+    /**
+    *data storage format:  csv
+    * String startDate; int dayCount; int difficulty; int[] exercises; int[] repetitions
+     * @param context konteksti, esim this
+     * @return oliko tallennustiedosto olemassa
      */
     public static boolean loadAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN LOAD" );
@@ -61,6 +68,10 @@ public class SaveManager {
         return true;
     }
 
+    /**
+     * Formatoi ja kirjoittaa tallennustiedostot.
+     * @param context konteksti, esim this
+     */
     public static void saveAllData(Context context) {
         Log.d("lmao", "-------------------------- BEGIN SAVE" );
         Global g = Global.getInstance();
@@ -91,7 +102,12 @@ public class SaveManager {
         Log.d("lmao", "Saved history of " + (g.getDayCount() + 1) + " days, " + (g.getDayCount() - g.getDayCountPrevious()) + " day change." );
     }
 
-
+    /**
+     * lukee tiedoston
+     * @param context konteksti, esim this
+     * @param fileName, tiedostonimi
+     * @return tiedosto
+     */
     public static String readFile(Context context, String fileName) {
         try {
             File file = new File(context.getFilesDir(), fileName);
@@ -110,6 +126,13 @@ public class SaveManager {
         }
     }
 
+    /**
+     * kirjotittaa tiedostoon
+     * @param context konteksti, esim this
+     * @param fileName tiedostonimi
+     * @param data formatoitu tieto
+     * @param append lisätäänkö tiedostoon, vai overwrite
+     */
     public static void writeFile(Context context, String fileName, String data, boolean append) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(

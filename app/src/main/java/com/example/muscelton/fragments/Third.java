@@ -30,8 +30,10 @@ import java.util.Calendar;
 import java.util.Random;
 
 
+
 /**
- * A simple {@link Fragment} subclass.
+ * Luokka sisältää Kolmannen välilehden "Progress" komponenttien eventtien määrittelyn ja UI:n päivityksen
+ * @author Elias Perttu
  */
 public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
 
@@ -59,6 +61,9 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         return rootView;
     }
 
+    /**
+     * Generoi visuaaliset graafit vastaaamaan tämänhetkistä "tietokantaa"
+     */
     public static void generateGraphs() {
 
         if(rootView == null) return;

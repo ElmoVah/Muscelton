@@ -21,7 +21,12 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+/**
+ * Luokka sisältää ohjelman päänäkymän, mutta luo oikeastaan vain tarvittavan välilehtinäkymän Fragmenteistä
+ * Päivittää välilehtiä tarvittaessa; välilehtiä vaihdettaessa.
+ * Kutsuu "tietokannan" latausmetodia käynnistyessä ja sen tallennusmetodia onPause.
+ */
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
@@ -57,15 +62,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mTabLayout.getTabCount());
+        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mTabLayout.getTabCount());
         pager.setAdapter(adapter);
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition() == 1)
+                if (tab.getPosition() == 1)
                     Second.updateUI();
-                else if(tab.getPosition() == 2)
+                else if (tab.getPosition() == 2)
                     Third.generateGraphs();
 
                 pager.setCurrentItem(tab.getPosition());
@@ -94,7 +99,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
+    /**
+     * Tallennetaan "tietokanta
+     */
     @Override //#HITECH
     protected void onPause() {
         super.onPause();

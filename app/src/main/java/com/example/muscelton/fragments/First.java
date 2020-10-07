@@ -27,7 +27,9 @@ import java.util.Random;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Luokka sisältää Ensimmäisen välilehden "Harjoitus" komponenttien eventtien määrittelyn ja UI:n päivityksen
+ * @author Elmo Vahvaselkä
+ * @author Elias Perttu
  */
 public class First extends Fragment {
 
@@ -133,6 +135,11 @@ public class First extends Fragment {
         return rootView;
 
     }
+
+    /**
+    * Päivittää sivun harjoitukset ja niiden toistot vastaamaan tämänhetkistä "tietokantaa"
+    * @param renew Uusitaanko harjoitukset niiden päivityksen yhteydessä
+     */
     private void UpdateUI(boolean renew) {
         Exercise[] exercises = renew ? Global.getInstance().renewExercises() : Global.getInstance().getExercises();
         int[] reps = Global.getInstance().getRepetitions();

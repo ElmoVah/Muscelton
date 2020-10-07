@@ -12,6 +12,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Singleton "tietokanta", joka sisältää arvot kaikesta ohjelmassa käytettävästä vähäisestä datasta.
+ * - Getterit ja setterit datalle
+ * - Harjoitusten uusimiseen käytetyt algoritmit
+ * - Ladatun tiedon validiointi
+ * - Sample datan generointi algoritmi
+ * @author Elias Perttu
+ */
 public class Global {
 
     public final Random rng;
@@ -26,9 +34,11 @@ public class Global {
 
     private static final Global singleton = new Global(); //luokka luodaan ohjelman kännistyessä
 
+    /**
+     * Konstruktorissa asetetaan vain tietokannan default arvot siltä varalta, että tallennustiedostoa ei vielä ole olemassa
+     */
     private Global() {
         this.rng = new Random(1337);
-        //default values, unless loaded from save
         this.difficulty = 0;
         this.exercises = new Exercise[5];
         this.renewExercises();
@@ -68,8 +78,10 @@ public class Global {
     public void setRepetitionHistory(ArrayList<int[]> rh) {
         this.repetitionHistory = rh;
     }
-
-    //Sufflaa uudet harjoitukset. Koska haluamme käyttää Elmon suositusta, Shufflea, pitää tehdä pari tyyppimuunnosta :(
+    /**
+     * Sufflaa uudet harjoitukset. Koska haluamme käyttää Elmon suositusta, Shufflea, pitää tehdä pari tyyppimuunnosta :(
+     * @return lista harjoituksista
+     */
     public Exercise[] renewExercises() {
         List<Exercise> newExercises = Arrays.asList(getExercisesOfDifficulty()); //Exercise[] to List<Exercise>
         Collections.shuffle(newExercises);  //SHUFFLE!
@@ -78,8 +90,11 @@ public class Global {
         Log.d("lmao", exercises[0].ordinal() + ", " + exercises[1].ordinal() + ", " + exercises[2].ordinal() + ", " + exercises[3].ordinal() + ", " + exercises[4].ordinal());
         return this.exercises; //List<Exercise> to Exercise[]
     }
-
-    //Arpoo yhden uuden harjoituksen.
+    /**
+     * Arpoo yhden uuden harjoituksen.
+     * @param index halutun harjoituksen sijainti näkymässä
+     * @retun uusi harjoitus
+     */
     public Exercise renewExercise(int index) {
         Exercise[] difSet = getExercisesOfDifficulty();
         int newIndex = rng.nextInt(difSet.length -1 ); //arvotaan kaikista lukuunottamatta viimeistä, koska:
@@ -88,11 +103,16 @@ public class Global {
         this.exercises[index] = difSet[newIndex];
         return this.exercises[index];
     }
-
+    /**
+     * Palauttaa listan mahdollisista harjoituksista tämänhetkisen vaikeustason perusteella
+     * @return lista harjoitusksista
+     */
     private Exercise[] getExercisesOfDifficulty() {
         return this.difficulty == 0 ? ExerciseData.easy : this.difficulty == 1 ? ExerciseData.medium : ExerciseData.hard;
     }
-
+    /**
+     * Nollaa historian, ja asettaa täten aloituspäivämäärn nykyhetkeksi
+     */
     public void initializeHistory() {
         dayCount = 0;
         dayCountPrevious = 0;
@@ -100,7 +120,12 @@ public class Global {
         this.startDate = SaveManager.sdf.format(new Date(System.currentTimeMillis()));
 
     }
-
+    /**
+     * Tarkistaa ladatun datan
+     * mikäli päivä viimetallennuksesta on vaihtunut, historiaan lisätään aiemmat harjoitukset
+     * lisää tyhjien, tallentamattomien päivien historian tietokantaan tyhjänä
+     * @return viimelatauksesta kuluneiden päivien määrä
+     */
     public long validateLoad(String startDate, int dayCountPrevious){
        try {
            this.startDate = startDate;
@@ -121,18 +146,10 @@ public class Global {
            return 0;
         }
     }
-
-    @Override
-    public String toString() {
-        String exercisesString = "Exercises: ";
-        for(Exercise e: exercises)
-            exercisesString += e.name() + ", ";
-        return "\nDifficulty: " + this.difficulty
-                + "\n" + exercisesString
-                + "\nRepetitions: " + Arrays.toString(repetitions)
-                + "\nHistory days count: " + repetitionHistory.size();
-    }
-
+    /**
+     * Kirjoittaa tietokantaan esimerkkidataa, joka kuvastaa oikeita käyttäjätyyppejä.
+     * Huom! Algoritmi kirjoittaa käyttäjän tiedon päälle!
+     */
     public void overwriteRandomData() {
         int historyDays = rng.nextInt(3) > 0 ? 1 + rng.nextInt(7)  :  10 + rng.nextInt(40);
 
@@ -161,5 +178,17 @@ public class Global {
                 repetitions = randomReps;
         }
     }
+
+    @Override
+    public String toString() {
+        String exercisesString = "Exercises: ";
+        for(Exercise e: exercises)
+            exercisesString += e.name() + ", ";
+        return "\nDifficulty: " + this.difficulty
+                + "\n" + exercisesString
+                + "\nRepetitions: " + Arrays.toString(repetitions)
+                + "\nHistory days count: " + repetitionHistory.size();
+    }
+
 }
 

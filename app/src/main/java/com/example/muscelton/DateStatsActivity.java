@@ -15,7 +15,11 @@ import com.example.muscelton.hitech.Global;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-
+/**
+ * Luokka on näkymä yksittäisen päivän harjoitusten tarkasteluun.
+ * Luodaan kerralla.
+ * @author Elias Perttu
+ */
 public class DateStatsActivity extends AppCompatActivity {
 
     @Override

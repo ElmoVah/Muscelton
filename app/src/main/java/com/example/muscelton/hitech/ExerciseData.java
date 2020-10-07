@@ -1,7 +1,12 @@
 package com.example.muscelton.hitech;
 
+/**
+ * Harjoitusten ydin listaan "Exercise" liittyvät vaihtoehtoiset formaatit
+ * @author Elias Perttu
+ */
 public final class ExerciseData {
 
+    //Harjoitusten määrä kokonaisuudessaan
     public static final int count = Exercise.values().length;
 
     public static final String[] names = {

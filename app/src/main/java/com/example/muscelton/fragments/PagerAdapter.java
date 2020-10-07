@@ -9,6 +9,9 @@ import com.example.muscelton.fragments.First;
 import com.example.muscelton.fragments.Second;
 import com.example.muscelton.fragments.Third;
 
+/**
+ * Androidin Studion generoima luokka tabien käsittelyä varten
+ */
 public class PagerAdapter extends FragmentPagerAdapter {
     private int tabsNumber;
 

@@ -25,7 +25,9 @@ import java.util.Calendar;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Luokka sisältää Toisen välilehden "History" komponenttien eventtien määrittelyn ja UI:n päivityksen
+ * @author Sami Huoppila
+ * @author Elias Perttu
  */
 public class Second extends Fragment {
 
@@ -85,6 +87,9 @@ public class Second extends Fragment {
         return rootView;
     }
 
+    /**
+     * Päivittää käyttöliittymän vastaamaan tämänhetkistä "tietokantaa"
+     */
     public static void updateUI() {
         if(rootView == null) return;
         ArrayList<int[]> repetitionHistory = Global.getInstance().getRepetitionHistory();
