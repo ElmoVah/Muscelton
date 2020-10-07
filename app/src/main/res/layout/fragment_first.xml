@@ -50,7 +50,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonUnlockDifficulty"
+            android:id="@+id/buttonUnlock"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="82dp"
             android:layout_height="67dp"
@@ -134,7 +134,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="485dp"
             android:backgroundTint="#002B0A0A"
-            android:tint="#61D4B3"
+            android:tint="#DFDFDF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
@@ -146,7 +146,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
-            android:tint="#61D4B3"
+            android:tint="#DFDFDF"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
@@ -158,7 +158,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
-            android:tint="#61D4B3"
+            android:tint="#DFDFDF"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
@@ -170,7 +170,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
-            android:tint="#61D4B3"
+            android:tint="#DFDFDF"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
@@ -182,7 +182,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
-            android:tint="#61D4B3"
+            android:tint="#DFDFDF"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
             app:srcCompat="@android:drawable/ic_menu_rotate" />

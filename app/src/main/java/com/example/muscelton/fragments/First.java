@@ -1,7 +1,10 @@
 package com.example.muscelton.fragments;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -66,6 +69,8 @@ public class First extends Fragment {
                 rootView.findViewById(R.id.editTextReps4),
                 rootView.findViewById(R.id.editTextReps5),
         };
+        for(ImageButton reroll : rerolls)
+            reroll.setEnabled(false);
 
         UpdateUI(false);
 
@@ -77,14 +82,19 @@ public class First extends Fragment {
             }
         });
 
-        ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setOnClickListener(new View.OnClickListener() {
+        ((Button) rootView.findViewById(R.id.buttonUnlock)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean wasEnabled = rootView.findViewById(R.id.radioButtonEasy).isEnabled();
                 for(int id: new int[] {R.id.radioButtonEasy, R.id.radioButtonNormal, R.id.radioButtonHard})
                     rootView.findViewById(id).setEnabled(!wasEnabled);
-                ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setText(wasEnabled ? "Unlock" : "Lock" +
-                        "");
+
+                for(ImageButton reroll : rerolls) {
+                    reroll.setEnabled(!wasEnabled);
+                    reroll.setColorFilter(Color.parseColor(wasEnabled ? "#DFDFDF" : "#61D4B3"));
+                }
+                ((Button) rootView.findViewById(R.id.buttonUnlock)).setText(wasEnabled ? "Unlock" : "Lock");
+
             }
         });
 

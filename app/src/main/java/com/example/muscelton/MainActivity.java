@@ -89,9 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        if(item.getItemId() == R.id.menuTab) {
-            Toast.makeText(this, "Btn is clicked", Toast.LENGTH_SHORT).show();
-        }
+
         return false;
     }
 
