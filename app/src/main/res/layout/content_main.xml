@@ -9,11 +9,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="#FD2EB3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"
@@ -22,26 +21,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        android:background="#FDD365">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/harjoituksetItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/monday" />
+            android:text="Harjoitukset" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tavoiteItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tuesday" />
+            android:text="Tavoite" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/edistysItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wednesday" />
+            android:text="Edistys" />
 
     </com.google.android.material.tabs.TabLayout>
 

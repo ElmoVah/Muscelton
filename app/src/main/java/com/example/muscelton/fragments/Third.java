@@ -85,12 +85,12 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         sumEntries.add(new Entry(shownHistoryDays +1, repsTotal));
         float avgReps = repsTotal / (shownHistoryDays + 1);
 
-        LineDataSet ds1 = new LineDataSet(repEntries, "Daily reps");
-        ds1.setColor(Color.BLUE);
+        LineDataSet ds1 = new LineDataSet(repEntries, "Päivittäiset toistot");
+        ds1.setColor(Color.parseColor("#FDD365"));
         dataSets.add(ds1);
 
-        LineDataSet ds2 = new LineDataSet(sumEntries, "Total reps, currently " + avgReps + " reps/day");
-        ds2.setColor(Color.RED);
+        LineDataSet ds2 = new LineDataSet(sumEntries, "Toistoja yhteensä, tällä hetkellä " + avgReps + " toistoa/pv");
+        ds2.setColor(Color.parseColor("#FD2EB3"));
         dataSets.add(ds2);
 
         LineData data = new LineData(dataSets);
@@ -99,7 +99,7 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
         xAxis.setGranularity(1.0f);
         xAxis.setLabelCount(shownHistoryDays + 1, true);
         Description d = new Description();
-        d.setText("Viewing last " + shownHistoryDays + " days + today.");
+        d.setText("Katselu viimeisestä " + shownHistoryDays + " päivästä + tästä päivästä.");
         chartHistory.setDescription(d);
         chartHistory.setData(data);
         chartHistory.invalidate();
@@ -121,15 +121,15 @@ public class Third extends Fragment { //aka Goals aka Tavoitteet aka Ennuste
             predictionEntries.add(new Entry(i, repsTotal + (avgRepsBase * (i))));
         }
 
-        LineDataSet ds3 = new LineDataSet(predictionEntries, "Prediction on your 7 day average: " + avgRepsBase + " reps/day");
-        ds3.setColor(Color.RED);
+        LineDataSet ds3 = new LineDataSet(predictionEntries, "Ennustus 7 päivän keskiarvostasi: " + avgRepsBase + " toistoa/pv");
+        ds3.setColor(Color.parseColor("#FDD365"));
         dataSets2.add(ds3);
         LineData data2 = new LineData(dataSets2);
         XAxis xAxis2 = chartPrediction.getXAxis();
         xAxis2.setGranularity(1.0f);
         xAxis2.setLabelCount(7, true);
         Description d2 = new Description();
-        d2.setText("This is useless.");
+        d2.setText("Tämä on hyödytöntä.");
         chartPrediction.setDescription(d2);
         chartPrediction.getDescription().setEnabled(false);
         chartPrediction.setData(data2);

@@ -8,9 +8,9 @@
     android:id="@+id/drawer">
 
     <include
-        android:layout_height="match_parent"
+        layout="@layout/content_main"
         android:layout_width="match_parent"
-        layout="@layout/content_main"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         app:menu="@menu/nav_menu"
         app:headerLayout="@layout/nav_header"
         android:fitsSystemWindows="true"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
