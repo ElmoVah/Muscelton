@@ -83,7 +83,7 @@ public class First extends Fragment {
                 boolean wasEnabled = rootView.findViewById(R.id.radioButtonEasy).isEnabled();
                 for(int id: new int[] {R.id.radioButtonEasy, R.id.radioButtonNormal, R.id.radioButtonHard})
                     rootView.findViewById(id).setEnabled(!wasEnabled);
-                ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setText(wasEnabled ? "Lock" : "Unlock" +
+                ((Button) rootView.findViewById(R.id.buttonUnlockDifficulty)).setText(wasEnabled ? "Unlock" : "Lock" +
                         "");
             }
         });

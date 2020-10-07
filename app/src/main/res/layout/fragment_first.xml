@@ -55,7 +55,7 @@
             android:layout_width="82dp"
             android:layout_height="67dp"
             android:backgroundTint="#FDD365"
-            android:text="Lock"
+            android:text="Unlock"
             android:textAllCaps="true"
             android:textColor="#373A39"
             android:textColorHint="#000000"
