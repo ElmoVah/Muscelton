@@ -3,5 +3,5 @@
 
     <item
         android:id="@+id/menuTab"
-        android:title="Menu Item" />
+        android:title="Profile" />
 </menu>

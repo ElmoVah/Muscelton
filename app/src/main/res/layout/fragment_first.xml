@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="Helppo"
+                android:text="Easy"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="Keski"
+                android:text="Mediocre"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="Vaikea"
+                android:text="Hard"
                 android:textSize="18sp" />
 
         </RadioGroup>
@@ -55,7 +55,7 @@
             android:layout_width="82dp"
             android:layout_height="67dp"
             android:backgroundTint="#FDD365"
-            android:text="Avaa"
+            android:text="Lock"
             android:textAllCaps="true"
             android:textColor="#373A39"
             android:textColorHint="#000000"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="160dp"
-            android:text="Harjoitus 1"
+            android:text="Exercise 1"
             android:textColor="#2B2828"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonReroll1"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="33dp"
-            android:text="Harjoitus 5"
+            android:text="Exercise 5"
             android:textColor="#2B2828"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonReroll5"
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="33dp"
-            android:text="Harjoitus 2"
+            android:text="Exercise 2"
             android:textColor="#2B2828"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonReroll2"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="33dp"
-            android:text="Harjoitus 3"
+            android:text="Exercise 3"
             android:textColor="#2B2828"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonReroll3"
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="32dp"
-            android:text="Harjoitus 4"
+            android:text="Exercise 4"
             android:textColor="#2B2828"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonReroll4"
@@ -193,7 +193,7 @@
             android:layout_width="184dp"
             android:layout_height="55dp"
             android:backgroundTint="#FD2EB3"
-            android:text="Rulla kaikki"
+            android:text="Reroll all!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -271,7 +271,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="4dp"
-            android:text="Tämän päivän toistot"
+            android:text="Today's reps"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextReps1"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -281,7 +281,7 @@
             android:layout_width="339dp"
             android:layout_height="45dp"
             android:layout_marginTop="8dp"
-            android:text="Voit syöttää jopa 99 toistoa.\nLuotettava automaattinen tallennus!"
+            android:text="Enter up to 99 repetitions.\nReliable autosaving!"
             android:textAlignment="center"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
