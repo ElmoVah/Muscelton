@@ -70,135 +70,121 @@
             android:id="@+id/textViewExercise1"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="160dp"
             android:text="Harjoitus 1"
+            android:textColor="#2B2828"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.242" />
+            app:layout_constraintStart_toEndOf="@+id/imageButtonReroll1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewExercise5"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="33dp"
             android:text="Harjoitus 5"
+            android:textColor="#2B2828"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewExercise4"
-            app:layout_constraintVertical_bias="0.018" />
+            app:layout_constraintStart_toEndOf="@+id/imageButtonReroll5"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise4" />
 
         <TextView
             android:id="@+id/textViewExercise2"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="33dp"
             android:text="Harjoitus 2"
+            android:textColor="#2B2828"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewExercise1"
-            app:layout_constraintVertical_bias="0.012" />
+            app:layout_constraintStart_toEndOf="@+id/imageButtonReroll2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise1" />
 
         <TextView
             android:id="@+id/textViewExercise3"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="33dp"
             android:text="Harjoitus 3"
+            android:textColor="#2B2828"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewExercise2"
-            app:layout_constraintVertical_bias="0.019" />
+            app:layout_constraintStart_toEndOf="@+id/imageButtonReroll3"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise2" />
 
         <TextView
             android:id="@+id/textViewExercise4"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="32dp"
             android:text="Harjoitus 4"
+            android:textColor="#2B2828"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewExercise3"
-            app:layout_constraintVertical_bias="0.014" />
+            app:layout_constraintStart_toEndOf="@+id/imageButtonReroll4"
+            app:layout_constraintTop_toBottomOf="@+id/textViewExercise3" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll1"
             style="@style/Widget.AppCompat.ImageButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="485dp"
             android:backgroundTint="#002B0A0A"
             android:tint="#61D4B3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExercise1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.238"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll2"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
             android:tint="#61D4B3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExercise2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll1"
-            app:layout_constraintVertical_bias="0.016"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll3"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
             android:tint="#61D4B3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExercise4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll2"
-            app:layout_constraintVertical_bias="0.021"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll4"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
             android:tint="#61D4B3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExercise3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll3"
-            app:layout_constraintVertical_bias="0.018"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <ImageButton
             android:id="@+id/imageButtonReroll5"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#002B0A0A"
             android:tint="#61D4B3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewExercise5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageButtonReroll4"
-            app:layout_constraintVertical_bias="0.026"
             app:srcCompat="@android:drawable/ic_menu_rotate" />
 
         <Button
@@ -210,10 +196,10 @@
             android:text="Rulla kaikki"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.693" />
+            app:layout_constraintVertical_bias="0.724" />
 
         <EditText
             android:id="@+id/editTextReps1"
@@ -223,9 +209,9 @@
             android:focusedByDefault="false"
             android:inputType="number"
             android:selectAllOnFocus="false"
+            android:textColor="#2B2828"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise1" />
 
         <EditText
@@ -236,9 +222,9 @@
             android:focusedByDefault="false"
             android:inputType="number"
             android:selectAllOnFocus="false"
+            android:textColor="#2B2828"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise2" />
 
         <EditText
@@ -249,9 +235,9 @@
             android:focusedByDefault="false"
             android:inputType="number"
             android:selectAllOnFocus="false"
+            android:textColor="#2B2828"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise3" />
 
         <EditText
@@ -262,9 +248,9 @@
             android:focusedByDefault="false"
             android:inputType="number"
             android:selectAllOnFocus="false"
+            android:textColor="#2B2828"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise4" />
 
         <EditText
@@ -277,14 +263,13 @@
             android:selectAllOnFocus="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/textViewExercise5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.41"
             app:layout_constraintStart_toEndOf="@+id/textViewExercise5" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="14dp"
             android:layout_marginBottom="4dp"
             android:text="Tämän päivän toistot"
             android:textSize="18sp"
